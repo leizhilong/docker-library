@@ -13,6 +13,7 @@ RUN	gem install \
 	bundler \
 	github-pages \
 	io-console \
+	jekyll-include-cache \
 	--no-rdoc --no-ri
 
 VOLUME /k8sdocs
@@ -20,8 +21,6 @@ VOLUME /k8sdocs
 EXPOSE 4000
 
 COPY start.sh /start.sh
-COPY Gemfile /Gemfile
-RUN cd / && bundle && bundle clean && cd -
 WORKDIR /k8sdocs
 
 CMD [ "/start.sh" ]
