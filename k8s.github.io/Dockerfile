@@ -20,6 +20,8 @@ VOLUME /k8sdocs
 EXPOSE 4000
 
 COPY start.sh /start.sh
+COPY Gemfile /Gemfile
+RUN cd / && bundle && bundle clean && cd -
 WORKDIR /k8sdocs
 
 CMD [ "/start.sh" ]
